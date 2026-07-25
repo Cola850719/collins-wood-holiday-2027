@@ -1,0 +1,26 @@
+[
+  {
+    "country": "Thailand",
+    "city": "Phuket",
+    "currency": "THB",
+    "familyScore": 95,
+    "weatherOctober": "Warm with some rain",
+    "costRating": 9,
+    "kidsActivities": 10,
+    "shopping": 9,
+    "beaches": 10,
+    "dayTrips": 10
+  },
+  {
+    "country": "Indonesia",
+    "city": "Bali",
+    "currency": "IDR",
+    "familyScore": 98,
+    "weatherOctober": "Excellent",
+    "costRating": 8,
+    "kidsActivities": 10,
+    "shopping": 10,
+    "beaches": 9,
+    "dayTrips": 10
+  }
+]
