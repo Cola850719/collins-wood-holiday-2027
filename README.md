@@ -10,11 +10,13 @@
 │
 ├── js/
 │   ├── app.js
+│   ├── destination.js
 │   ├── countdown.js
 │   └── theme.js
 │
 ├── data/
 │   ├── countries.json
+│   ├── destinations.json
 │   ├── cities.json
 │   ├── resorts.json
 │   ├── activities.json
