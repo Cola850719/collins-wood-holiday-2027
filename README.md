@@ -14,6 +14,7 @@
 │   └── theme.js
 │
 ├── data/
+│   ├── destinations.json
 │   ├── countries.json
 │   ├── cities.json
 │   ├── resorts.json
