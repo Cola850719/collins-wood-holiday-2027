@@ -1,4 +1,4 @@
-fetch("./data/destinations.json")
+fetch("/collins-wood-holiday-2027/data/destinations.json")
 
 .then(response => response.json())
 
