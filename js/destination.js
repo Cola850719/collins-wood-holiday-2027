@@ -31,12 +31,16 @@ ${destination.city}, ${destination.country}
 
 <p>
 🌦 October Weather:
-${destination.weatherOctober}
+${destination.octoberWeather}
 </p>
 
 <p>
-💰 Cost Rating:
-${destination.costRating}/10
+💰 Daily Cost:
+$${destination.dailyCostAUD} AUD
+
+<p>
+💰AUD Value:
+${destination.audValueRating}/10
 </p>
 
 <p>
@@ -52,6 +56,10 @@ ${destination.beaches}/10
 <p>
 🚤 Day Trips:
 ${destination.dayTrips}/10
+</p>
+
+<p>
+🏨 Kids Club: ${destination.kidsClub}/10
 </p>
 
 `;
