@@ -258,6 +258,7 @@ return {
 
 matchScore:
 calculateFamilyScore(destination)
+}
     function calculateFamilyScore(destination) {
 
 
