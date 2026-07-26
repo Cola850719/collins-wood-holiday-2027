@@ -1,1 +1,1 @@
-console.log("Recommendations JS loaded");
+console.log("recommendations JS loaded");
