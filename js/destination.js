@@ -5,16 +5,21 @@ let currentDestinations = [];
 
 // Load destination data
 
-fetch("../data/destinations.json")
+fetch("/collins-wood-holiday-2027/data/destinations.json")
 
-.then(response => response.json())
+.then(response => {
+
+    console.log("Status:", response.status);
+
+    return response.json();
+
+})
 
 .then(data => {
 
-    console.log("Destinations loaded:", data.length);
+    console.log("Loaded destinations:", data.length);
 
     allDestinations = data;
-    currentDestinations = data;
 
     displayDestinations(data);
 
@@ -23,6 +28,8 @@ fetch("../data/destinations.json")
 .catch(error => {
 
     console.error("JSON loading error:", error);
+
+});
 
 });
 
