@@ -258,6 +258,57 @@ return {
 
 matchScore:
 calculateFamilyScore(destination)
+   function generateReasons(destination) {
+
+
+    let reasons = [];
+
+
+    if (destination.kidsActivities >= 9) {
+
+        reasons.push("👧 Excellent kids activities");
+
+    }
+
+
+    if (destination.kidsClub >= 8) {
+
+        reasons.push("🏨 Great kids club options");
+
+    }
+
+
+    if (destination.poolResorts >= 9) {
+
+        reasons.push("🏊 Excellent pool resorts");
+
+    }
+
+
+    if (destination.beaches >= 9) {
+
+        reasons.push("🏖 Beautiful family beaches");
+
+    }
+
+
+    if (destination.audValueRating >= 9) {
+
+        reasons.push("💱 Strong AUD value");
+
+    }
+
+
+    if (destination.shopping >= 8) {
+
+        reasons.push("🛍 Good shopping nearby");
+
+    }
+
+
+    return reasons.slice(0,4);
+
+} 
 
 };
 
@@ -304,6 +355,28 @@ ${destination.city}, ${destination.country}
 <p>
 🏆 Match Score:
 ${destination.matchScore}/100
+</p>
+
+<p>
+<strong>Why it ranked:</strong>
+</p>
+
+<ul>
+
+${generateReasons(destination)
+.map(reason => `<li>${reason}</li>`)
+.join("")}
+
+</ul>
+
+<p>
+<strong>Things to consider:</strong>
+</p>
+
+<p>
+
+${destination.octoberWeather}
+
 </p>
 
 
