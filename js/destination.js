@@ -220,7 +220,7 @@ sortOptions.addEventListener("change", function() {
     let sorted = [...allDestinations].sort((a,b) => {
 
 
-        return b[option] - a[option];
+        return a[option] - b[option];
 
 
     });
