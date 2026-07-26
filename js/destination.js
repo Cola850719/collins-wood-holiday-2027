@@ -1,10 +1,13 @@
 let allDestinations = [];
 let currentDestinations = [];
 
+
+// Load destination data
+
 fetch("/collins-wood-holiday-2027/data/destinations.json")
 
 .then(response => response.json())
-  
+
 .then(data => {
 
     allDestinations = data;
@@ -12,19 +15,33 @@ fetch("/collins-wood-holiday-2027/data/destinations.json")
 
     displayDestinations(data);
 
-});
+})
+
 .catch(error => {
 
     console.error("Error loading destinations:", error);
-  });
 
-function displayDestinations(destinations){
+});
+
+
+
+// Display destination cards
+
+function displayDestinations(destinations) {
 
     const container = document.getElementById("destinationContainer");
 
+    if (!container) {
+        console.error("Destination container not found");
+        return;
+    }
+
+
     container.innerHTML = "";
 
+
     destinations.forEach(destination => {
+
 
         container.innerHTML += `
 
@@ -34,93 +51,187 @@ function displayDestinations(destinations){
             ${destination.city}, ${destination.country}
             </h2>
 
-            <p>⭐ Family Score:
+
+            <p>
+            ⭐ Family Score:
             ${destination.familyScore}/100
             </p>
 
-            <p>🌦 October:
+
+            <p>
+            🌦 October Weather:
             ${destination.octoberWeather}
             </p>
 
-            <p>💰 Daily Cost:
+
+            <p>
+            💰 Daily Cost:
             $${destination.dailyCostAUD} AUD
             </p>
 
-            <p>💱 AUD Value:
+
+            <p>
+            💱 AUD Value:
             ${destination.audValueRating}/10
             </p>
 
-            <p>👧 Kids Activities:
+
+            <p>
+            👧 Kids Activities:
             ${destination.kidsActivities}/10
             </p>
 
-            <p>🏨 Kids Club:
+
+            <p>
+            🏨 Kids Club:
             ${destination.kidsClub}/10
             </p>
 
-            <p>🏖 Beaches:
+
+            <p>
+            🏊 Pool Resorts:
+            ${destination.poolResorts}/10
+            </p>
+
+
+            <p>
+            🏖 Beaches:
             ${destination.beaches}/10
             </p>
+
+
+            <p>
+            🛍 Shopping:
+            ${destination.shopping}/10
+            </p>
+
+
+            <p>
+            🚤 Day Trips:
+            ${destination.dayTrips}/10
+            </p>
+
 
         </div>
 
         `;
 
+
     });
 
+
 }
-  
+
+
+
+// Search function
+
+const searchBox = document.getElementById("searchBox");
+
+
+if (searchBox) {
+
+
+searchBox.addEventListener("input", function() {
+
 
     let search = this.value.toLowerCase();
 
-    let filtered = allDestinations.filter(destination =>
 
-        destination.city.toLowerCase().includes(search) ||
+    let filtered = allDestinations.filter(destination => {
+
+
+        return (
+
+        destination.city.toLowerCase().includes(search)
+
+        ||
+
         destination.country.toLowerCase().includes(search)
 
-    );
+        );
+
+
+    });
+
 
     displayDestinations(filtered);
 
+
 });
 
-function filterDestinations(country){
 
-    if(country === "all"){
+}
+
+
+
+
+// Country filter buttons
+
+function filterDestinations(country) {
+
+
+    if (country === "all") {
+
 
         displayDestinations(allDestinations);
+
         return;
+
 
     }
 
 
-    let filtered =
-    allDestinations.filter(destination =>
 
-        destination.country === country
+    let filtered = allDestinations.filter(destination => {
 
-    );
+
+        return destination.country === country;
+
+
+    });
+
 
 
     displayDestinations(filtered);
 
+
 }
-document
-.getElementById("sortOptions")
-.addEventListener("change", function(){
-
-let option = this.value;
 
 
-let sorted =
-[...allDestinations].sort((a,b)=>
-
-b[option]-a[option]
-
-);
 
 
-displayDestinations(sorted);
+
+// Sorting function
+
+const sortOptions = document.getElementById("sortOptions");
+
+
+if (sortOptions) {
+
+
+sortOptions.addEventListener("change", function() {
+
+
+    let option = this.value;
+
+
+
+    let sorted = [...allDestinations].sort((a,b) => {
+
+
+        return b[option] - a[option];
+
+
+    });
+
+
+
+    displayDestinations(sorted);
+
 
 
 });
+
+
+}
