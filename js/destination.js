@@ -4,7 +4,7 @@ let currentDestinations = [];
 
 // Load destination data
 
-fetch("/collins-wood-holiday-2027/data/destinations.json")
+fetch("../data/destinations.json")
 
 .then(response => response.json())
 
