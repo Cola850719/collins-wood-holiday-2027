@@ -3,6 +3,29 @@ console.log("Destination JS loaded");
 let allDestinations = [];
 let currentDestinations = [];
 
+// Load destination data
+
+fetch("../data/destinations.json")
+
+.then(response => response.json())
+
+.then(data => {
+
+    console.log("Destinations loaded:", data.length);
+
+    allDestinations = data;
+    currentDestinations = data;
+
+    displayDestinations(data);
+
+})
+
+.catch(error => {
+
+    console.error("JSON loading error:", error);
+
+});
+
 // Calculate Family Match Score
 
 function calculateFamilyScore(destination) {
