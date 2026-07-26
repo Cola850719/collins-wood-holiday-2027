@@ -8,7 +8,67 @@
 <title>
 Destination Comparison
 </title>
+<input 
+type="text" 
+id="searchBox" 
+placeholder="Search destination or country..."
+>
+  <div class="filters">
 
+<button onclick="filterDestinations('all')">
+All
+</button>
+
+<button onclick="filterDestinations('Thailand')">
+Thailand
+</button>
+
+<button onclick="filterDestinations('Malaysia')">
+Malaysia
+</button>
+
+<button onclick="filterDestinations('Indonesia')">
+Indonesia
+</button>
+
+<button onclick="filterDestinations('Vietnam')">
+Vietnam
+</button>
+
+<button onclick="filterDestinations('Cambodia')">
+Cambodia
+</button>
+
+</div>
+
+<select id="sortOptions">
+
+<option value="familyScore">
+Best Family Score
+</option>
+
+<option value="dailyCostAUD">
+Lowest Cost
+</option>
+
+<option value="kidsActivities">
+Best Kids Activities
+</option>
+
+<option value="kidsClub">
+Best Kids Club
+</option>
+
+<option value="beaches">
+Best Beaches
+</option>
+
+<option value="audValueRating">
+Best AUD Value
+</option>
+
+</select>
+  
 <link rel="stylesheet" href="../css/style.css">
 
 </head>
