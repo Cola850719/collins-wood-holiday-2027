@@ -14,6 +14,7 @@ fetch("../data/destinations.json")
     currentDestinations = data;
 
     displayDestinations(data);
+    displayTopRecommendations();
 
 })
 
@@ -241,6 +242,99 @@ sortOptions.addEventListener("change", function() {
 }
 
 // Calculate Family Match Score
+
+function displayTopRecommendations(){
+
+
+let ranked = [...allDestinations]
+
+
+.map(destination => {
+
+
+return {
+
+...destination,
+
+matchScore:
+calculateFamilyScore(destination)
+
+};
+
+
+})
+
+
+.sort((a,b)=>
+
+b.matchScore-a.matchScore
+
+)
+
+
+.slice(0,5);
+
+
+
+const container =
+document.getElementById("topRecommendations");
+
+
+if (!container) return;
+
+
+
+container.innerHTML = "";
+
+
+
+ranked.forEach(destination => {
+
+
+container.innerHTML += `
+
+<div class="recommendation-card">
+
+
+<h3>
+${destination.city}, ${destination.country}
+</h3>
+
+
+<p>
+🏆 Match Score:
+${destination.matchScore}/100
+</p>
+
+
+<p>
+👧 Kids:
+${destination.kidsActivities}/10
+</p>
+
+
+<p>
+🏖 Beach:
+${destination.beaches}/10
+</p>
+
+
+<p>
+💰 Cost:
+$${destination.dailyCostAUD} AUD/day
+</p>
+
+
+</div>
+
+
+`;
+
+
+});
+
+
+}
 
 function calculateFamilyScore(destination) {
 
