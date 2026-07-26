@@ -12,15 +12,11 @@ fetch("/collins-wood-holiday-2027/data/destinations.json")
 
     displayDestinations(data);
 
-})
+});
 .catch(error => {
 
     console.error("Error loading destinations:", error);
-
-const container = document.getElementById("destination-list");
-
-
-destinations.forEach(destination => {
+  });
 
 function displayDestinations(destinations){
 
@@ -73,9 +69,7 @@ function displayDestinations(destinations){
     });
 
 }
-  document
-.getElementById("searchBox")
-.addEventListener("input", function(){
+  
 
     let search = this.value.toLowerCase();
 
