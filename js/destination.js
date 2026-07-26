@@ -1,3 +1,8 @@
+console.log("Destination JS loaded");
+
+let allDestinations = [];
+let currentDestinations = [];
+
 // Calculate Family Match Score
 
 function calculateFamilyScore(destination) {
