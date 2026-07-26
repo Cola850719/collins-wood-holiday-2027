@@ -1,78 +1,132 @@
+let allDestinations = [];
+let currentDestinations = [];
+
 fetch("/collins-wood-holiday-2027/data/destinations.json")
 
 .then(response => response.json())
+  
+.then(data => {
 
-.then(destinations => {
+    allDestinations = data;
+    currentDestinations = data;
+
+    displayDestinations(data);
+
+})
+.catch(error => {
+
+    console.error("Error loading destinations:", error);
 
 const container = document.getElementById("destination-list");
 
 
 destinations.forEach(destination => {
 
+function displayDestinations(destinations){
 
-const card = document.createElement("div");
+    const container = document.getElementById("destinationContainer");
 
-card.className = "card";
+    container.innerHTML = "";
 
+    destinations.forEach(destination => {
 
-card.innerHTML = `
+        container.innerHTML += `
 
-<h2>
-${destination.city}, ${destination.country}
-</h2>
+        <div class="destination-card">
 
-<p>
-💱 Currency: ${destination.currency}
-</p>
+            <h2>
+            ${destination.city}, ${destination.country}
+            </h2>
 
-<p>
-⭐ Family Score: ${destination.familyScore}/100
-</p>
+            <p>⭐ Family Score:
+            ${destination.familyScore}/100
+            </p>
 
-<p>
-🌦 October Weather:
-${destination.octoberWeather}
-</p>
+            <p>🌦 October:
+            ${destination.octoberWeather}
+            </p>
 
-<p>
-💰 Daily Cost:
-$${destination.dailyCostAUD} AUD
+            <p>💰 Daily Cost:
+            $${destination.dailyCostAUD} AUD
+            </p>
 
-<p>
-💰AUD Value:
-${destination.audValueRating}/10
-</p>
+            <p>💱 AUD Value:
+            ${destination.audValueRating}/10
+            </p>
 
-<p>
-👧 Kids Activities:
-${destination.kidsActivities}/10
-</p>
+            <p>👧 Kids Activities:
+            ${destination.kidsActivities}/10
+            </p>
 
-<p>
-🏖 Beaches:
-${destination.beaches}/10
-</p>
+            <p>🏨 Kids Club:
+            ${destination.kidsClub}/10
+            </p>
 
-<p>
-🚤 Day Trips:
-${destination.dayTrips}/10
-</p>
+            <p>🏖 Beaches:
+            ${destination.beaches}/10
+            </p>
 
-<p>
-🏨 Kids Club: ${destination.kidsClub}/10
-</p>
+        </div>
 
-`;
+        `;
 
-container.appendChild(card);
+    });
 
+}
+  document
+.getElementById("searchBox")
+.addEventListener("input", function(){
+
+    let search = this.value.toLowerCase();
+
+    let filtered = allDestinations.filter(destination =>
+
+        destination.city.toLowerCase().includes(search) ||
+        destination.country.toLowerCase().includes(search)
+
+    );
+
+    displayDestinations(filtered);
 
 });
 
-})
+function filterDestinations(country){
 
-.catch(error => {
+    if(country === "all"){
 
-console.log("Error loading destinations:", error);
+        displayDestinations(allDestinations);
+        return;
+
+    }
+
+
+    let filtered =
+    allDestinations.filter(destination =>
+
+        destination.country === country
+
+    );
+
+
+    displayDestinations(filtered);
+
+}
+document
+.getElementById("sortOptions")
+.addEventListener("change", function(){
+
+let option = this.value;
+
+
+let sorted =
+[...allDestinations].sort((a,b)=>
+
+b[option]-a[option]
+
+);
+
+
+displayDestinations(sorted);
+
 
 });
