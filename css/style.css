@@ -108,3 +108,19 @@ text-align:center;
 padding:20px;
 
 }
+.recommendation-card {
+
+padding:20px;
+margin:15px;
+border-radius:12px;
+background:white;
+box-shadow:0 3px 10px rgba(0,0,0,0.15);
+
+}
+
+
+.recommendation-card li {
+
+margin:8px 0;
+
+}
