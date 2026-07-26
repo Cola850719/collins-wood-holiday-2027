@@ -1,0 +1,9 @@
+{
+ "tripName":"South East Asia Family Holiday 2027",
+ "departure":"Sydney",
+ "arrivalDate":"2027-10-09",
+ "departureDate":"2027-10-18",
+ "adults":4,
+ "children":3,
+ "childAges":[6,7,8]
+}
