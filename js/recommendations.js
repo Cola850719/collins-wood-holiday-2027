@@ -92,21 +92,85 @@ function calculateRecommendationScore(destination) {
     let score = 0;
 
 
-    score += destination.kidsActivities * 3;
-
-    score += destination.kidsClub * 2;
-
-    score += destination.poolResorts * 2;
-
-    score += destination.beaches * 2;
-
-    score += destination.audValueRating * 1;
+    const priorities = window.familyProfile.priorities;
 
 
+    // Kids activities importance
 
-    if (destination.dailyCostAUD <= 150) {
+    score += destination.kidsActivities *
+    priorities.kidsActivities;
 
-        score += 5;
+
+    // Kids club importance
+
+    score += destination.kidsClub *
+    priorities.kidsClub;
+
+
+    // Beaches importance
+
+    score += destination.beaches *
+    priorities.beaches;
+
+
+    // Resort/pool importance
+
+    score += destination.poolResorts *
+    priorities.poolResorts;
+
+
+    // Value for money
+
+    score += destination.audValueRating *
+    priorities.valueForMoney;
+
+
+
+    // Easy family holiday bonus
+
+    if (
+        destination.kidsActivities >= 9 &&
+        destination.kidsClub >= 8 &&
+        destination.poolResorts >= 9
+    ) {
+
+        score += priorities.easyHoliday;
+
+    }
+
+
+
+    // Cost adjustment
+
+    if(destination.dailyCostAUD <= 150){
+
+        score += 10;
+
+    }
+
+    else if(destination.dailyCostAUD <= 200){
+
+        score += 7;
+
+    }
+
+    else if(destination.dailyCostAUD <= 250){
+
+        score += 4;
+
+    }
+
+    else {
+
+        score += 1;
+
+    }
+
+
+    return Math.round(score);
+
+
+    
 
     }
 
