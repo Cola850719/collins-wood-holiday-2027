@@ -198,10 +198,6 @@ function calculateRecommendationScore(destination) {
 
 }
 
-
-
-
-
 // Display Top 5 Recommendation Cards
 
 function displayRecommendations(recommendations) {
@@ -267,6 +263,34 @@ function displayRecommendations(recommendations) {
 
 
             <p>
+            <strong>
+            ⭐ Why it ranked:
+            </strong>
+            </p>
+
+
+            <ul>
+
+            ${generateRecommendationReasons(destination)
+            .map(reason => `<li>${reason}</li>`)
+            .join("")}
+
+            </ul>
+
+
+            <p>
+            📍 Recommended Area:
+            ${destination.recommendedArea}
+            </p>
+
+
+            <p>
+            🏨 Resort Style:
+            ${destination.resortStyle}
+            </p>
+
+
+            <p>
             👧 Kids Activities:
             ${destination.kidsActivities}/10
             </p>
@@ -309,6 +333,82 @@ function displayRecommendations(recommendations) {
 
 
     });
+
+
+}
+
+
+
+
+
+// Generate recommendation reasons
+
+function generateRecommendationReasons(destination) {
+
+
+    let reasons = [];
+
+
+    if (destination.kidsActivities >= 9) {
+
+        reasons.push(
+            "👧 Excellent kids activities"
+        );
+
+    }
+
+
+    if (destination.kidsClub >= 8) {
+
+        reasons.push(
+            "🏨 Great kids club options"
+        );
+
+    }
+
+
+    if (destination.poolResorts >= 9) {
+
+        reasons.push(
+            "🏊 Fantastic family resort pools"
+        );
+
+    }
+
+
+    if (destination.beaches >= 9) {
+
+        reasons.push(
+            "🏖 Beautiful family beaches"
+        );
+
+    }
+
+
+    if (destination.audValueRating >= 9) {
+
+        reasons.push(
+            "💰 Strong AUD value"
+        );
+
+    }
+
+
+    if (destination.bestFor) {
+
+        reasons.push(
+            "⭐ " + destination.bestFor
+        );
+
+    }
+
+
+    return reasons.slice(0,5);
+
+}
+
+
+
 
 
 }
