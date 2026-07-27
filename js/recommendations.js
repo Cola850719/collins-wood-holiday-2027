@@ -169,6 +169,9 @@ function displayRecommendations(recommendations) {
 
 
     container.innerHTML = "";
+    
+    console.log("Recommendation container:", container);
+    console.log("Recommendations received:", recommendations.length);
 
 
     recommendations.forEach((destination, index) => {
