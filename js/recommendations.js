@@ -31,6 +31,8 @@ setTimeout(() => {
         "Top Recommendations:",
         topRecommendations
     );
+
+console.log(Calling displayRecommendations");
     
 displayRecommendations(topRecommendations);
 
