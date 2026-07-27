@@ -179,4 +179,31 @@ margin:8px 0;
 
     padding-left: 20px;
 
-} 
+}
+
+/* Feature 5.3A - Recommendation Ranking Badges */
+
+.rank-badge {
+
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 15px;
+
+}
+
+
+.recommendation-card {
+
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+}
+
+
+.recommendation-card.rank-1 {
+
+    transform: scale(1.03);
+
+}
