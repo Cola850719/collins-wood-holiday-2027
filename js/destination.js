@@ -1,5 +1,7 @@
 console.log("Destination JS loaded");
 
+window.allDestinations = [];
+
 let allDestinations = [];
 let currentDestinations = [];
 
@@ -14,8 +16,8 @@ fetch("/collins-wood-holiday-2027/data/destinations.json")
 
     console.log("Destinations loaded:", data.length);
 
-    allDestinations = data;
-    currentDestinations = data;
+    window.allDestinations = data;
+    window.currentDestinations = data;
 
     displayDestinations(data);
 
