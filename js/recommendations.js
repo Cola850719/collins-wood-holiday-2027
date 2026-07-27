@@ -169,14 +169,6 @@ function calculateRecommendationScore(destination) {
 
     return Math.round(score);
 
-
-    
-
-    
-
-  
-
-
 }
 
 // Display Top 5 Recommendation Cards
