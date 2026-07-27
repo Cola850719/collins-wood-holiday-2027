@@ -31,7 +31,8 @@ setTimeout(() => {
         "Top Recommendations:",
         topRecommendations
     );
-
+    
+displayRecommendations(topRecommendations);
 
 }, 2000);
 
@@ -139,6 +140,96 @@ function calculateRecommendationScore(destination) {
 
 
     return Math.round(score);
+
+
+}
+
+// Display Top 5 Recommendation Cards
+
+function displayRecommendations(recommendations) {
+
+
+    const container = document.getElementById(
+        "recommendationContainer"
+    );
+
+
+    if (!container) {
+
+        console.error(
+            "Recommendation container not found"
+        );
+
+        return;
+
+    }
+
+
+    container.innerHTML = "";
+
+
+    recommendations.forEach((destination, index) => {
+
+
+        container.innerHTML += `
+
+        <div class="destination-card">
+
+
+            <h2>
+            🏆 ${index + 1}. 
+            ${destination.city}, ${destination.country}
+            </h2>
+
+
+            <p>
+            ⭐ Match Score:
+            ${destination.matchScore}/100
+            </p>
+
+
+            <p>
+            👧 Kids Activities:
+            ${destination.kidsActivities}/10
+            </p>
+
+
+            <p>
+            🏨 Kids Club:
+            ${destination.kidsClub}/10
+            </p>
+
+
+            <p>
+            🏖 Beaches:
+            ${destination.beaches}/10
+            </p>
+
+
+            <p>
+            🏊 Pool Resorts:
+            ${destination.poolResorts}/10
+            </p>
+
+
+            <p>
+            🌦 October:
+            ${destination.octoberWeather}
+            </p>
+
+
+            <p>
+            💰 Cost:
+            $${destination.dailyCostAUD} AUD/day
+            </p>
+
+
+        </div>
+
+        `;
+
+
+    });
 
 
 }
