@@ -388,8 +388,3 @@ function generateRecommendationReasons(destination) {
 
 }
 
-
-
-
-
-}
