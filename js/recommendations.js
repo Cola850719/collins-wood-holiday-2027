@@ -1,4 +1,4 @@
-console.log("Recommendations JS loaded- FEATURE 5.1B TEST");
+console.log("Recommendations JS loaded - FEATURE 5.1B TEST");
 
 
 // Wait for destination data to load
@@ -32,9 +32,12 @@ setTimeout(() => {
         topRecommendations
     );
 
-console.log(Calling displayRecommendations");
-    
-displayRecommendations(topRecommendations);
+
+    console.log("Calling displayRecommendations");
+
+
+    displayRecommendations(topRecommendations);
+
 
 }, 2000);
 
@@ -49,30 +52,30 @@ function createRecommendations(destinations) {
 
     return destinations
 
-    .map(destination => {
+        .map(destination => {
 
 
-        return {
+            return {
 
-            ...destination,
+                ...destination,
 
-            matchScore:
-            calculateRecommendationScore(destination)
+                matchScore:
+                calculateRecommendationScore(destination)
 
-        };
-
-
-    })
+            };
 
 
-    .sort((a,b) =>
-
-        b.matchScore - a.matchScore
-
-    )
+        })
 
 
-    .slice(0,5);
+        .sort((a,b) =>
+
+            b.matchScore - a.matchScore
+
+        )
+
+
+        .slice(0,5);
 
 
 }
@@ -89,32 +92,17 @@ function calculateRecommendationScore(destination) {
     let score = 0;
 
 
-    // Kids experience
-
     score += destination.kidsActivities * 3;
-
-
-    // Kids club
 
     score += destination.kidsClub * 2;
 
-
-    // Resort quality
-
     score += destination.poolResorts * 2;
 
-
-    // Beaches
-
     score += destination.beaches * 2;
-
-
-    // AUD value
 
     score += destination.audValueRating * 1;
 
 
-    // Cost bonus
 
     if (destination.dailyCostAUD <= 150) {
 
@@ -146,11 +134,17 @@ function calculateRecommendationScore(destination) {
 
 }
 
+
+
+
+
 // Display Top 5 Recommendation Cards
 
 function displayRecommendations(recommendations) {
 
+
     console.log("Displaying recommendation cards");
+
 
     const container = document.getElementById(
         "recommendationContainer"
@@ -159,25 +153,39 @@ function displayRecommendations(recommendations) {
 
     if (!container) {
 
+
         console.error(
             "Recommendation container not found"
         );
 
+
         return;
+
 
     }
 
 
     container.innerHTML = "";
-    
-    console.log("Recommendation container:", container);
-    console.log("Cards to display:", recommendations.length);
+
+
+    console.log(
+        "Recommendation container:",
+        container
+    );
+
+
+    console.log(
+        "Cards to display:",
+        recommendations.length
+    );
+
 
 
     recommendations.forEach((destination, index) => {
 
 
         container.innerHTML += `
+
 
         <div class="destination-card">
 
@@ -231,6 +239,7 @@ function displayRecommendations(recommendations) {
 
 
         </div>
+
 
         `;
 
