@@ -1,4 +1,4 @@
-console.log("Recommendations JS loaded");
+console.log("Recommendations JS loaded- FEATURE 5.1B TEST");
 
 
 // Wait for destination data to load
