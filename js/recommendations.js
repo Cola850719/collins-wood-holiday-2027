@@ -220,18 +220,26 @@ function displayRecommendations(recommendations) {
         container.innerHTML += `
 
 
-        <div class="destination-card">
+        <div class="recommendation-card rank-${index + 1}">
 
 
-            <h2>
-            🏆 ${index + 1}. 
+        <h2 class="rank-badge">
+
+            ${index === 0 ? "🥇 #1" : ""}
+            ${index === 1 ? "🥈 #2" : ""}
+            ${index === 2 ? "🥉 #3" : ""}
+            ${index > 2 ? "🏆 #" + (index + 1) : ""}
+            
             ${destination.city}, ${destination.country}
+            
             </h2>
 
 
-            <p>
-            ⭐ Match Score:
+            <p class="match-score">
+
+            ⭐ Family Match:
             ${destination.matchScore}/100
+            
             </p>
 
 
