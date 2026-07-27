@@ -148,6 +148,7 @@ function calculateRecommendationScore(destination) {
 
 function displayRecommendations(recommendations) {
 
+    console.log("Displaying recommendation cards");
 
     const container = document.getElementById(
         "recommendationContainer"
