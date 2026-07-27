@@ -172,28 +172,9 @@ function calculateRecommendationScore(destination) {
 
     
 
-    }
+    
 
-    else if (destination.dailyCostAUD <= 200) {
-
-        score += 4;
-
-    }
-
-    else if (destination.dailyCostAUD <= 250) {
-
-        score += 3;
-
-    }
-
-    else {
-
-        score += 2;
-
-    }
-
-
-    return Math.round(score);
+  
 
 
 }
